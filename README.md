@@ -1,7 +1,9 @@
 # larvel接口文档生成,测试工具生成工具
 > 目前完成了文档生成部分
 
-demo：
+
+# demo(controller中)：
+> 基本文档模板(后续会写详细文档）
     /**
      * @Name 用户中心-登录
      * @Description 用户登录接口
