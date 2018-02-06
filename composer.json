@@ -1,0 +1,19 @@
+{
+    "name": "orangesir/larvel-doc",
+    "description": "larvel doc and test html",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0",
+        "fideloper/proxy": "~3.3",
+        "laravel/framework": "5.5.*",
+        "laravel/tinker": "~1.0",
+        "overtrue/laravel-wechat": "^4.0",
+        "zedisdog/laravel-schema-extend": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Apidoc\\": "src/"
+        }
+    }
+}
