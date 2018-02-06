@@ -4,6 +4,7 @@
 
 # demo(controller中)：
 > 基本文档模板(后续会写详细文档）
+``
     /**
      * @Name 用户中心-登录
      * @Description 用户登录接口
@@ -18,6 +19,7 @@
      * }
      */
      public function login(Request $request)
+``
 
 # 基本使用方法
 1. composer 安装包:
