@@ -38,7 +38,7 @@
                         <div class="table-responsive">
                             <p>{{$info["request_method"]}} {{$info["request_path"]}}</p>
                             <blockquote>
-                                <p>{{$info["Description"]}}</p>
+                                <p>{{$info["Description"] or "没有描述"}}</p>
                             </blockquote>
                             <div class="panel panel-default">
                                 <div class="panel-heading">参数列表</div>
