@@ -10,7 +10,6 @@ use Apidoc\Renders\AbstractRender;
 class DefaultRender extends AbstractRender {
 
     private $tpl;
-    private $html;
     private $apiInfoList = [];
 
     /**
@@ -31,11 +30,19 @@ class DefaultRender extends AbstractRender {
 
         if(!is_dir($this->getOutputPath())) {
             if(!mkdir($this->getOutputPath())) {
-                throw new DocException("mkdir out path failure dir:".$this->getOutputPath());
+                throw new DocException("mkdir out path failure. dir:".$this->getOutputPath());
             }
         }
         if(!is_writable($this->getOutputPath())) {
             throw new DocException("out path is not writeable! dir:".$this->getOutputPath());
+        }
+        if(!is_dir($this->getOutputPath().DIRECTORY_SEPARATOR."tests")) {
+            if(!mkdir($this->getOutputPath().DIRECTORY_SEPARATOR."tests")) {
+                throw new DocException("mkdir tests dir in out path failure. dir:".$this->getOutputPath());
+            }
+        }
+        if(!is_writable($this->getOutputPath().DIRECTORY_SEPARATOR."tests")) {
+            throw new DocException("test dir in out path is not writeable! dir:".$this->getOutputPath());
         }
     }
 
@@ -49,6 +56,11 @@ class DefaultRender extends AbstractRender {
     {
         $apiInfo["id"] = uniqid();
         $this->apiInfoList[] = $apiInfo;
+        if($apiInfo["type"]=="api") {
+            $outTestFile =  $this->getOutputPath().DIRECTORY_SEPARATOR."tests".DIRECTORY_SEPARATOR.$apiInfo["id"].".html";
+            file_put_contents($outTestFile,view("test", ["info"=>$apiInfo]));
+            Log::info("生成接口测试工具:".$apiInfo["request_method"]." ".$apiInfo["request_path"]);
+        }
     }
 
     /**
@@ -62,10 +74,19 @@ class DefaultRender extends AbstractRender {
         // 写入文件
         $outStyleFile = $this->getOutputPath().DIRECTORY_SEPARATOR."style.css";
         $stylefile = $this->getResourcesPath().DIRECTORY_SEPARATOR."style.css";
-        $outDocFile = $this->getOutputPath().DIRECTORY_SEPARATOR."index.html";
-        if(file_exists($stylefile) && is_writable($stylefile)) {
+        if(file_exists($stylefile) && is_readable($stylefile)) {
             file_put_contents($outStyleFile,file_get_contents($stylefile));
         }
+
+        //request.js
+        $outRequestjsFile = $this->getOutputPath().DIRECTORY_SEPARATOR."tests".DIRECTORY_SEPARATOR."request.js";
+        $requestjsFile = $this->getResourcesPath().DIRECTORY_SEPARATOR."request.js";
+        if(file_exists($requestjsFile) && is_readable($requestjsFile)) {
+            file_put_contents($outRequestjsFile,file_get_contents($requestjsFile));
+        }
+
+        $outDocFile = $this->getOutputPath().DIRECTORY_SEPARATOR."index.html";
+
         file_put_contents($outDocFile,view("doc", ["apiinfo"=>$this->apiInfoList]));
         Log::info("完成文档写入，文档文件:".$outDocFile);
     }

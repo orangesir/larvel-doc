@@ -34,7 +34,7 @@
                     @if($info["type"]=="group")
                         <h2 class="page-header" id="{{$info["id"]}}">{{$info["Name"] or "未命名的分组"}}</h2>
                     @else
-                        <h4 class="sub-header" id="{{$info["id"]}}">{{$info["Name"] or "未命名的接口"}}</h4>
+                            <h4 class="sub-header" id="{{$info["id"]}}">{{$info["Name"] or "未命名的接口"}} <a href="tests/{{$info["id"]}}.html">使用测试工具</a></h4>
                         <div class="table-responsive">
                             <p>{{$info["request_method"]}} {{$info["request_path"]}}</p>
                             <blockquote>
