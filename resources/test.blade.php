@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 main">
-            <h1 class="page-header">接口测试工具</h1>
+            <h1 class="page-header">接口测试工具<a href="/docs/index.html" style="font-size: 20px">返回文档页面</a></h1>
             <h4 class="sub-header">{{$info["Name"] or "未命名的接口"}}</h4>
             <div class="table-responsive">
                 <input type="hidden" id="url" value="/{{$info["request_path"]}}"/>
