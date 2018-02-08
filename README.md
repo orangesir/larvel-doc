@@ -26,6 +26,9 @@
   > composer require --dev orangesir/larvel-doc:dev-master
 2. 配置服务提供者, config/app.php
   > 'providers' => [ Apidoc\ApiDocServiceProvider::class ]
-3. 生成文档:
+3. 生成文档(生成前会删除所有文档):
   php artisan doc:generate
 4. 查看文档: http://project-domain/docs/index.html
+
+5.清空所有文档:
+  php artisan doc:cleanall
