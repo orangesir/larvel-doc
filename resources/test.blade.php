@@ -36,9 +36,9 @@
                         @if(isset($info["Param"]))
                             @foreach($info["Param"] as $param)
                                 <tr>
-                                    <td class="pointer" title="参数{{$param["name"]}}描述"
-                                        data-container="body" data-toggle="popover" data-placement="top"
-                                        data-content="{{$param["value"]}}">{{$param["name"]}}</td>
+                                    <td><span class="pointer" title="参数{{$param["name"]}}描述"
+                                              data-container="body" data-toggle="popover" data-placement="top"
+                                              data-content="{{$param["value"]}}">{{$param["name"]}}</span></td>
                                     <td><input type="text" class="form-control param" name="{{$param["name"]}}" value="{{$param["ParamTest"] or ""}}" placeholder="填入参数值"></td>
                                 </tr>
                             @endforeach

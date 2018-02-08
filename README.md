@@ -29,6 +29,5 @@
 3. 生成文档(生成前会删除所有文档):
   php artisan doc:generate
 4. 查看文档: http://project-domain/docs/index.html
-
-5.清空所有文档:
+5. 清空所有文档:
   php artisan doc:cleanall
