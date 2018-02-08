@@ -99,15 +99,16 @@ class ApiCodeCommentsParser {
         if(trim($paramDoc)==="") {
             throw new DocException("@Param no content in ".$this->getUses().": ".$row);
         }
-        $contentFristSemicolonIndex = strpos($content, ":");
+        $contentFristSemicolonIndex = strpos($paramDoc, ":");
         $paramName = substr($content, 0 ,$contentFristSemicolonIndex);
-        $paramValue = substr($content, $contentFristSemicolonIndex+1);
+
+        $paramValue = substr($paramDoc, $contentFristSemicolonIndex+1);
         $paramTestValue = str_replace("@ParamTest", "", $paramTest);
         return [
             "Param" => [
                 "name" => $paramName,
-                "value" => $paramValue,
-                "testvalue" => $paramTestValue
+                "value" => trim($paramValue),
+                "ParamTest" => trim($paramTestValue)
             ]
         ];
     }
