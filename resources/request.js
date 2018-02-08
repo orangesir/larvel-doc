@@ -59,8 +59,13 @@ var formatJson = function (json, options) {
 };
 
 $(function () {
-    $("[data-toggle='popover']").popover();
+    $("[data-toggle='popover']").hover(function(obj){
+        $(obj.currentTarget).popover('show')
+    },function(obj){
+        $(obj.currentTarget).popover('hide')
+    });
 });
+
 $("#sendreqeust").click(function(){
     console.log("开始查询");
     var url = $("#url").val();
@@ -80,8 +85,8 @@ $("#sendreqeust").click(function(){
         data:param,
         type:method,
         dataType:"text",
-        success:function(data) {
-            $(".result").html(formatJson(data));
+        complete:function(data, status) {
+            $(".result").html(formatJson(data.responseText));
         }
     });
 });
