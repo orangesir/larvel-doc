@@ -29,7 +29,7 @@
                 <form class="form-inline">
                     <table class="table table-condensed">
                         <thead>
-                        <th style="width: 30%">参数名称(点击看描述)</th>
+                        <th style="width: 30%">参数名称(鼠标覆盖查询描述)</th>
                         <th>参数值</th>
                         </thead>
                         <tbody>

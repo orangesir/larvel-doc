@@ -127,7 +127,6 @@ class ApiCodeCommentsParser {
             $line = trim($line,"/");
             $line = trim($line);
             $line = trim($line,"*");
-            $line = trim($line);
             if($line!="") {
                 $tmpCommentArray[] = $line;
             }
@@ -136,8 +135,9 @@ class ApiCodeCommentsParser {
         $commentArray = $tmpCommentArray;
         $tmpCommentArray = [];
         foreach ($commentArray as $line) {
-            if(strpos($line,"@")===0) {
-                $tmpCommentArray[] = $line;
+            $trimLine = trim($line);
+            if(strpos($trimLine,"@")===0) {
+                $tmpCommentArray[] = $trimLine;
             } else {
                 $tmpCommentArrayLastIndex = count($tmpCommentArray)-1;
                 if($tmpCommentArrayLastIndex<0) {
