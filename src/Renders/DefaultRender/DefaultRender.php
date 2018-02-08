@@ -1,7 +1,6 @@
 <?php
 namespace Apidoc\Renders\DefaultRender;
 
-
 use Apidoc\ApiDocServiceProvider;
 use Apidoc\Exceptions\DocException;
 use Apidoc\Log;
