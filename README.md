@@ -34,6 +34,11 @@
      */
      public function login(Request $request){}
 </pre>
+<pre>
+    Route::group(['prefix' => 'auth', 'middleware'=>[], 'grouptitle'=>'用户中心'], function(){
+        Route::post('login','Auth\LoginController@login')->name("auth.login");
+    });
+</pre>
 
 ### 标签描述
 > 标签解析规则方法注释中@开头，空格结尾，空格过后是标签内容两边的空格将去掉,内容内的@xxx将不作为标签识别，参数标签@Param做了特殊处理可以包含默认参数测试标签@ParamTest
@@ -45,3 +50,6 @@
 > 参数标签，代表http请求的参数描述，格式如下:@Param 参数名称:参数描述 @ParamTest 参数默认测试值(会自动填充到测试表单中)
 #### @Response
 > 参数结果描述，显示时候显示在<pre></pre>中保存格式
+
+### 接口分组
+> 文档中支持用户分组的,如模板中使用'grouptitle'=>'用户中心'为路由分组命名为"用户中心"，这将在文档中体现，如果没有这个分组标题，将不在文档中体现分组,文档上最好是一层分组，如果有多层将一次显示，但是没有层次缩进
