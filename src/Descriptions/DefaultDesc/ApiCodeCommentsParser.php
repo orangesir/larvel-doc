@@ -16,12 +16,15 @@ class ApiCodeCommentsParser {
 
     public function __construct($uses) {
 
+        $this->parseUses($uses);
+        $this->markSet = array_unique((array_merge($this->markSet, $this->getConfigMarks())));
+
+    }
+
+    public function parseUses($uses) {
         $result = Str::parseCallback($uses);
         $this->controllerClass = $result[0];
         $this->controllerMethod = $result[1];
-
-        $this->markSet = array_unique((array_merge($this->markSet, $this->getConfigMarks())));
-
     }
 
     public function getUses() {

@@ -2,7 +2,4 @@
 namespace Apidoc\Exceptions;
 
 
-class DocException extends \Exception
-{
-
-}
+class DocException extends \Exception{}

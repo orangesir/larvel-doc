@@ -7,10 +7,6 @@ use Apidoc\Descriptions\DefaultDesc\DefaultDescription;
 use Apidoc\Renders\DefaultRender\DefaultRender;
 use Illuminate\Support\ServiceProvider;
 
-function log_info($str) {
-
-}
-
 class ApiDocServiceProvider extends ServiceProvider {
 
     private $toolbox;
