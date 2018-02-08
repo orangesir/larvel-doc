@@ -1,6 +1,7 @@
 <?php
 namespace Apidoc;
 
+use Apidoc\Commands\Clean;
 use Apidoc\Commands\Generate;
 use Apidoc\Descriptions\DefaultDesc\DefaultDescription;
 use Apidoc\Renders\DefaultRender\DefaultRender;
@@ -31,8 +32,12 @@ class ApiDocServiceProvider extends ServiceProvider {
         $this->app->singleton('doc.generate', function () {
             return new Generate();
         });
+        $this->app->singleton('doc.clean', function () {
+            return new Clean();
+        });
         $this->commands([
-            'doc.generate'
+            'doc.generate',
+            'doc.clean'
         ]);
     }
 

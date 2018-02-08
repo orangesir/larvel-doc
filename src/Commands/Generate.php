@@ -41,6 +41,7 @@ class Generate extends Command {
      */
     public function handle()
     {
+        $this->call("doc:cleanall");
         Log::setCommand($this);
         try {
             $desc = $this->toolbox->getDesc();
