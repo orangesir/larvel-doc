@@ -14,7 +14,7 @@
   php artisan doc:cleanall
 
 # 基本用法生成物描述
-生成物包含文档页和测试工具页，下面是截图:
+生成物包含文档页和测试工具页，下面是截图:<br>
 文档图片:
 <img src="resources/example/doc.png"/>
 工具图片:
