@@ -68,6 +68,7 @@ $(function () {
 
 $("#sendreqeust").click(function(){
     console.log("开始查询");
+    $(".result").html("doing....");
     var url = $("#url").val();
     var method = $("#method").val();
     var param = {}
@@ -86,7 +87,11 @@ $("#sendreqeust").click(function(){
         type:method,
         dataType:"text",
         complete:function(data, status) {
-            $(".result").html(formatJson(data.responseText));
+            $(".result").html("原始数据:\n"+data.responseText);
+            var resultJson = formatJson(data.responseText);
+            if(resultJson) {
+                $(".result").html(resultJson);
+            }
         }
     });
 });
