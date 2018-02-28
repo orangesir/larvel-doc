@@ -22,6 +22,9 @@ class ApiCodeCommentsParser {
     }
 
     public function parseUses($uses) {
+        if(!is_string($uses)) {
+            throw new DocIgnoreException();
+        }
         $result = Str::parseCallback($uses);
         $this->controllerClass = $result[0];
         $this->controllerMethod = $result[1];

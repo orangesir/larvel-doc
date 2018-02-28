@@ -67,8 +67,8 @@ class DefaultDescription extends AbstractDescription {
                  "Name" => $name
              ];
          }
-         $docs[] = $this->extraApi($route);
 
+         $docs[] = $this->extraApi($route);
          Log::info("完成解析接口:".$route->methods[0]." ".$route->uri);
 
          return $docs;

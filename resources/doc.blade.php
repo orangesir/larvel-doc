@@ -62,7 +62,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">返回值描述</div>
                                 <div class="panel-body">
-                                    <pre>{{$info["Response"]}}</pre>
+                                    <pre>{{$info["Response"] or "没有返回值描述"}}</pre>
                                 </div>
                             </div>
                         </div>
